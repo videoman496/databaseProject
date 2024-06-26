@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let selectedTable = ""; // Переменная для хранения выбранной таблицы
+  let selectedTable = "";
 
   function deleteAction() {
     const container = document.getElementById("data-container");
-    container.innerHTML = ""; // Очищаем контейнер перед добавлением новых элементов
+    container.innerHTML = "";
 
     const formContainer = document.createElement("form");
     formContainer.className = "delete-form";
 
-    // Создаем инпут для ввода ID записи и кнопку сабмита
+    
     const input = document.createElement("input");
     input.id = "rowIdInput";
     input.type = "number";
@@ -18,20 +18,19 @@ document.addEventListener("DOMContentLoaded", function () {
     submitButton.type = "submit";
     submitButton.innerText = "Delete";
 
-    // Обработчик события отправки формы
+   
     formContainer.addEventListener("submit", function (event) {
-      event.preventDefault(); // Предотвращаем стандартное поведение формы
-
+      event.preventDefault();
       const rowIdInput = document.getElementById("rowIdInput");
-      const rowId = parseInt(rowIdInput.value); // Получаем ID записи
+      const rowId = parseInt(rowIdInput.value);
 
-      // Выполняем POST-запрос
+     
       fetch(`http://localhost:3000/${selectedTable}/delete`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: rowId }), // Передаем ID записи для удаления
+        body: JSON.stringify({ id: rowId }),
       })
         .then((response) => {
           if (!response.ok) {
@@ -41,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then((data) => {
           console.log("Запись успешно удалена:", data);
-          // Обновляем таблицу после удаления записи
+          
           fetchData(selectedTable);
         })
         .catch((error) => {
           console.error("Ошибка удаления записи:", error);
-          // Выведем текст ответа сервера, чтобы понять, что произошло
+          
           response.text().then((text) => {
             console.log("Текст ответа сервера:", text);
           });
@@ -201,20 +200,20 @@ document.addEventListener("DOMContentLoaded", function () {
             container,
             function () {
               const container = document.getElementById("data-container");
-    container.innerHTML = ""; // Очищаем контейнер перед добавлением новых элементов
+    container.innerHTML = "";
 
     const formContainer = document.createElement("form");
     formContainer.className = "add-form";
 
-    // Создаем инпут для каждого столбца таблицы Výstavná_sála
+
     const fields = [
         { name: "Názov_sály", type: "text", placeholder: "Enter name" }
-        // Добавьте дополнительные поля сюда, если они известны
+    
     ];
 
     fields.forEach(field => {
         const input = document.createElement("input");
-        input.name = field.name; // Обратите внимание, что важно установить атрибут name
+        input.name = field.name;
         input.type = field.type;
         input.placeholder = field.placeholder;
         formContainer.appendChild(input);
@@ -226,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formContainer.appendChild(submitButton);
 
     formContainer.onsubmit = function(event) {
-        event.preventDefault(); // Предотвратить обычную отправку формы
+        event.preventDefault();
         const formData = new FormData(formContainer);
         const vystavnaSalaData = {};
         formData.forEach((value, key) => {
@@ -243,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             console.log('Výstavná sála добавлена:', data);
-            // Можно добавить логику для обновления интерфейса пользователя
+           
         })
         .catch(error => {
             console.error('Ошибка при добавлении в Výstavná sála:', error);
@@ -297,12 +296,11 @@ document.addEventListener("DOMContentLoaded", function () {
             container,
             function () {
               const container = document.getElementById("data-container");
-              container.innerHTML = ""; // Очищаем контейнер перед добавлением новых элементов
+              container.innerHTML = ""; 
           
               const formContainer = document.createElement("form");
               formContainer.className = "add-form";
           
-              // Создаем инпуты для каждого столбца таблицы Exponát
               const fields = [
                   { name: "ID_exponátu", type: "number", placeholder: "exponat ID" },
                   { name: "Názov", type: "text", placeholder: "exponat name" },
@@ -333,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
               formContainer.appendChild(submitButton);
           
               formContainer.onsubmit = function(event) {
-                  event.preventDefault(); // Предотвратить обычную отправку формы
+                  event.preventDefault();
                   const formData = new FormData(formContainer);
                   const exponatData = {};
                   formData.forEach((value, key) => {
@@ -350,7 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
                   .then(response => response.json())
                   .then(data => {
                       console.log('Exponát добавлен:', data);
-                      // Можно добавить логику для обновления интерфейса пользователя
                   })
                   .catch(error => {
                       console.error('Ошибка при добавлении Exponát:', error);
