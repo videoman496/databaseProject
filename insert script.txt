@@ -1,0 +1,95 @@
+INSERT INTO Výstavná_sála (Názov_sály)
+VALUES
+    ('Sála A'),
+    ('Sála B'),
+    ('Sála C'),
+    ('Sála D'),
+    ('Sála E'),
+    ('Sála F'),
+    ('Sála G'),
+    ('Sála H'),
+    ('Sála I'),
+    ('Sála J'),
+    ('Sála K'),
+    ('Sála L'),
+    ('Sála M'),
+    ('Sála N'),
+    ('Sála O'),
+    ('Sála P'),
+    ('Sála Q'),
+    ('Sála R'),
+    ('Sála S'),
+    ('Sála T');
+
+
+INSERT INTO Zamestnanec (Meno, Priezvisko, Pozícia)
+VALUES
+    ('John', 'Doe', 'Manager'),
+    ('Alice', 'Smith', 'Curator'),
+    ('Michael', 'Johnson', 'Assistant'),
+    ('Emily', 'Brown', 'Technician'),
+    ('Daniel', 'Wilson', 'Security Guard'),
+    ('Emma', 'Taylor', 'Caretaker'),
+    ('Matthew', 'Martinez', 'Guide'),
+    ('Olivia', 'Anderson', 'Researcher'),
+    ('James', 'Harris', 'Conservator'),
+    ('Sophia', 'Clark', 'Administrator'),
+    ('Liam', 'Lewis', 'Archivist'),
+    ('Ava', 'Walker', 'Educator'),
+    ('Noah', 'Allen', 'Technician'),
+    ('Isabella', 'White', 'Coordinator'),
+    ('Ethan', 'Hall', 'Assistant'),
+    ('Mia', 'Thompson', 'Curator'),
+    ('Lucas', 'Garcia', 'Guide'),
+    ('Charlotte', 'Lee', 'Manager'),
+    ('Alexander', 'Scott', 'Archivist'),
+    ('Amelia', 'Green', 'Security Guard');
+
+
+INSERT INTO Exponát (Názov, Očakávaný_vek, Cena, Druh, Krajina_pôvodu, Popis, Datum_zapôžičania, Datum_vrátenia, ID_zamestnanca, ID_výstavnej_sály, ID_kategórie) 
+VALUES
+('Ancient Vase', 200, 1500.00, 'Ceramics', 'Greece', 'An ancient vase dating back to 5th century BC.', '2024-04-01', '2024-06-30', 1, 17, 6),
+('Medieval Sword', 800, 2000.00, 'Weapon', 'England', 'A medieval sword from the 12th century.', '2024-04-02', '2024-07-15', 2, 18, 7),
+('Renaissance Painting', 500, 3500.00, 'Art', 'Italy', 'A masterpiece painting by Leonardo da Vinci.', '2024-04-03', '2024-09-20', 3, 19, 8),
+('Egyptian Sphinx', 3000, 10000.00, 'Sculpture', 'Egypt', 'A majestic Sphinx from ancient Egypt.', '2024-04-04', '2024-12-31', 1, 17, 9),
+('Samurai Armor', 600, 5000.00, 'Armor', 'Japan', 'Authentic armor worn by samurai warriors.', '2024-04-05', '2025-01-10', 2, 18, 10),
+('Mayan Statue', 1000, 3000.00, 'Sculpture', 'Mexico', 'A mysterious statue from the Mayan civilization.', '2024-04-06', '2025-02-15', 3, 19, 6),
+('Roman Coin', 2000, 800.00, 'Antiquity', 'Italy', 'A rare Roman coin from the 1st century AD.', '2024-04-07', '2025-03-20', 1, 17, 7),
+('Chinese Scroll', 1500, 2500.00, 'Art', 'China', 'An ancient scroll depicting Chinese calligraphy.', '2024-04-08', '2025-04-25', 2, 18, 8),
+('Aztec Mask', 900, 4000.00, 'Artifact', 'Mexico', 'An intricate mask from the Aztec civilization.', '2024-04-09', '2025-05-30', 3, 19, 9),
+('Greek Statue', 700, 6000.00, 'Sculpture', 'Greece', 'A classical Greek statue of a goddess.', '2024-04-10', '2025-06-15', 1, 17, 10),
+('Viking Ship', 1200, 10000.00, 'Artifact', 'Norway', 'A well-preserved Viking ship from the 9th century.', '2024-04-11', '2025-07-20', 2, 18, 6),
+('Inca Pottery', 1100, 3500.00, 'Ceramics', 'Peru', 'Ancient pottery crafted by the Inca civilization.', '2024-04-12', '2025-08-25', 3, 19, 7),
+('Tudor Tapestry', 400, 5000.00, 'Art', 'England', 'A magnificent tapestry from the Tudor era.', '2024-04-13', '2025-09-30', 1, 17, 8),
+('Byzantine Icon', 900, 4500.00, 'Art', 'Turkey', 'A precious icon from the Byzantine Empire.', '2024-04-14', '2025-10-05', 2, 18, 9),
+('Mongol Bow', 1500, 3000.00, 'Weapon', 'Mongolia', 'A traditional bow used by Mongol warriors.', '2024-04-15', '2025-11-10', 3, 19, 10),
+('Pharaoh''s Sarcophagus', 2500, 15000.00, 'Artifact', 'Egypt', 'The ornate sarcophagus of an ancient Egyptian pharaoh.', '2024-04-16', '2025-12-15', 1, 17, 6),
+('Celtic Brooch', 800, 2000.00, 'Jewelry', 'Ireland', 'A beautifully crafted brooch from the Celtic culture.', '2024-04-17', '2026-01-20', 2, 18, 7),
+('Etruscan Pottery', 1800, 5000.00, 'Ceramics', 'Italy', 'Exquisite pottery created by the Etruscan civilization.', '2024-04-18', '2026-02-25', 3, 19, 8),
+('Inuit Carving', 600, 2500.00, 'Art', 'Canada', 'A detailed carving depicting Inuit traditions.', '2024-04-19', '2026-03-30', 1, 17, 9),
+('Neolithic Axe', 4000, 6000.00, 'Artifact', 'Germany', 'An ancient axe dating back to the Neolithic period.', '2024-04-20', '2026-04-30', 2, 18, 10);
+
+
+
+INSERT INTO Kategória_exponátu (Názov_kategórie)
+VALUES
+    ('Painting'),
+    ('Sculpture'),
+    ('Photography'),
+    ('Textile'),
+    ('Ceramics'),
+    ('Jewelry'),
+    ('Furniture'),
+    ('Metalwork'),
+    ('Glassware'),
+    ('Printmaking'),
+    ('Pottery'),
+    ('Drawing'),
+    ('Calligraphy'),
+    ('Engraving'),
+    ('Basketry'),
+    ('Woodworking'),
+    ('Leatherworking'),
+    ('Carpentry'),
+    ('Collage'),
+    ('Mosaic');

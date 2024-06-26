@@ -1,0 +1,35 @@
+CREATE TABLE Zamestnanec (
+    ID_zamestnanca INT(11) PRIMARY KEY,
+    Meno VARCHAR(100),
+    Priezvisko VARCHAR(100),
+    Pozícia VARCHAR(100)
+);
+
+CREATE TABLE Kategória_exponátu (
+    ID_kategórie INT(11) PRIMARY KEY,
+    Názov_kategórie VARCHAR(255)
+);
+CREATE TABLE Výstavná_sála (
+    ID_sály INT(11) PRIMARY KEY,
+    Názov_sály VARCHAR(255)
+);
+CREATE TABLE Exponát (
+    ID_exponátu INT(11) PRIMARY KEY,
+    Názov VARCHAR(255),
+    Očakávaný_vek INT(11),
+    Cena DECIMAL(15,2),
+    Druh VARCHAR(100),
+    Krajina_pôvodu VARCHAR(100),
+    Popis TEXT,
+    Datum_zapôžičania DATE,
+    Datum_vrátenia DATE,
+    ID_zamestnanca INT(11),
+    ID_výstavnej_sály INT(11),
+    ID_kategórie INT(11),
+    FOREIGN KEY (ID_zamestnanca) REFERENCES Zamestnanec(ID_zamestnanca),
+    FOREIGN KEY (ID_kategórie) REFERENCES Kategória_exponátu(ID_kategórie),
+	FOREIGN KEY (ID_výstavnej_sály) REFERENCES Výstavná_sála(ID_sály)
+);
+
+
+
