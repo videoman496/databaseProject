@@ -8,10 +8,10 @@ function fetchData() {
         })
         .then(data => {
             const container = document.getElementById('data-container');
-            container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
+            container.innerHTML = '';
             
             if (data.length === 0) {
-                container.innerHTML = '<p>Нет данных для отображения.</p>';
+                container.innerHTML = '<p>No data to display.</p>';
             } else {
                 const ul = document.createElement('ul');
                 data.forEach(item => {
@@ -29,7 +29,7 @@ function fetchData() {
         .catch(error => {
             console.error('Failed to fetch data:', error);
             const container = document.getElementById('data-container');
-            container.innerHTML = `<p>Ошибка при загрузке данных: ${error.message}</p>`;
+            container.innerHTML = `<p>Error loading data: ${error.message}</p>`;
         });
 }
 
@@ -52,11 +52,11 @@ function deleteAction() {
                 return response.json();
             })
             .then(data => {
-                console.log("Запись успешно удалена:", data);
+                console.log("Data was successfully deleted:", data);
                 fetchData();
             })
             .catch(error => {
-                console.error("Ошибка удаления записи:", error);
+                console.error("Eror deleting the data:", error);
             });
     });
     console.log("Delete button is now active.");
