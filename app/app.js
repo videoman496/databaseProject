@@ -39,15 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
-          console.log("Запись успешно удалена:", data);
+          console.log("Data deleted successfully:", data);
           
           fetchData(selectedTable);
         })
         .catch((error) => {
-          console.error("Ошибка удаления записи:", error);
+          console.error("Error deleting the data:", error);
           
           response.text().then((text) => {
-            console.log("Текст ответа сервера:", text);
+            console.log("Server responce:", text);
           });
         });
     });
@@ -241,11 +241,11 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Výstavná sála добавлена:', data);
+            console.log('Výstavná sála was added:', data);
            
         })
         .catch(error => {
-            console.error('Ошибка при добавлении в Výstavná sála:', error);
+            console.error('Error adding data to Výstavná sála:', error);
         });
     };
 
@@ -347,10 +347,10 @@ document.addEventListener("DOMContentLoaded", function () {
                   })
                   .then(response => response.json())
                   .then(data => {
-                      console.log('Exponát добавлен:', data);
+                      console.log('Exponát added:', data);
                   })
                   .catch(error => {
-                      console.error('Ошибка при добавлении Exponát:', error);
+                      console.error('Error adding Exponát:', error);
                   });
               };
           
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const submitButton = document.createElement("button");
     submitButton.type = "submit";
-    submitButton.innerText = "Добавить категорию";
+    submitButton.innerText = "Add category";
     formContainer.appendChild(submitButton);
 
     formContainer.onsubmit = function(event) {
@@ -440,10 +440,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Kategória exponátu добавлена:', data);
+            console.log('Kategória exponátu was added:', data);
         })
         .catch(error => {
-            console.error('Ошибка при добавлении Kategória exponátu:', error);
+            console.error('Error adding Kategória exponátu:', error);
         });
     };
 
@@ -453,7 +453,7 @@ document.addEventListener("DOMContentLoaded", function () {
               deleteAction();
             },
             function () {
-              console.log("Изменить строку");
+              console.log("Change the row");
             }
           );
         } else {
@@ -535,10 +535,10 @@ document.addEventListener("DOMContentLoaded", function () {
                   })
                   .then(response => response.json())
                   .then(data => {
-                      console.log('Zamestnanec добавлен:', data);
+                      console.log('Zamestnanec was added:', data);
                   })
                   .catch(error => {
-                      console.error('Ошибка при добавлении Zamestnanec:', error);
+                      console.error('Error adding Zamestnanec:', error);
                   });
               };
           
