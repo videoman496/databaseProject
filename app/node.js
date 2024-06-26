@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const dbConfig = {
-  host: '147.232.47.244',
-  user: 'Pervashov',
-  password: '186592387',
-  database: 'Pervashov'
+  host: 'DBSERVER_IP',
+  user: 'USER',
+  password: 'YOURPASS',
+  database: 'YOURDBNAME'
 };
 
 const db = mysql.createConnection(dbConfig);
@@ -22,8 +22,8 @@ app.get('/api/exponaty-kategoria', (req, res) => {
   `;
   db.query(sql, (error, results) => {
       if (error) {
-          console.error('Error fetching data:', error); // Логирование ошибки в консоль сервера
-          return res.status(500).send('Error fetching data'); // Отправка сообщения об ошибке клиенту
+          console.error('Error fetching data:', error);
+          return res.status(500).send('Error fetching data');
       }
       res.json(results);
   });
@@ -63,7 +63,6 @@ db.connect(error => {
   console.log("Successfully connected to the database.");
 });
 
-// GET запросы для всех таблиц
 app.get('/vystavna_sala', (req, res) => {
   db.query('SELECT * FROM Výstavná_sála', (error, results) => {
     if (error) {
@@ -105,8 +104,8 @@ app.get('/zamestnanec', (req, res) => {
 });
 
 app.post('/:table/delete', (req, res) => {
-  const { id } = req.body; // Получаем ID записи из тела запроса
-  const table = req.params.table; // Получаем имя таблицы из URL
+  const { id } = req.body;
+  const table = req.params.table;
 
   console.log(`Received request to delete ID ${id} from table ${table}`);
 
@@ -156,8 +155,8 @@ app.post('/:table/delete', (req, res) => {
 });
 
 app.post('/:table/add', (req, res) => {
-  const table = req.params.table; // Получаем имя таблицы из URL
-  const data = req.body; // Получаем данные для добавления из тела запроса
+  const table = req.params.table;
+  const data = req.body;
   console.log(`Received request to add data to table ${table}:`, data);
 
   let query;
@@ -197,7 +196,6 @@ app.post('/:table/add', (req, res) => {
   }
 
   console.log(`Executing query: ${query}`);
-  // Выполнение запроса к базе данных
   db.query(query, queryParams, (error, results) => {
       if (error) {
           console.log(`Error adding data: ${error.message}`);
